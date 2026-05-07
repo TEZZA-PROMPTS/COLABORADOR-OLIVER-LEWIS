@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompts by Tezza</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin-top: 10px;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .prompt-box {
+      background: #151515;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    .prompt-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background: #0d0d0d;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      user-select: text;
+    }
+    button {
+      margin-top: 12px;
+      background: #ffffff;
+      color: #000000;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #e0e0e0;
+    }
+    .hint {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Prompts by Tezza</h1>
+  <p>Página oficial para copiar prompts • Uso pessoal</p>
+</header>
+
+<div class="container">
+
+  <div class="prompt-box">
+    <div class="prompt-title">TEZZA PROMPTS
+    COLABORADOR OLIVER LEWIS </div>
+
+<pre id="prompt1">(TEZZA PROMPTS)
+marque @tezza.vu @oliverr.vuh
+site: /dreamina.capcut.com/      [AGENTE DE IA]
+
+  CONCEPT
+Ultra-realistic cinematic male portrait, rendered in Blender Cycles.
+
+CAMERA AND COMPOSITION
+Close-up selfie-style angled shot. Model framed from the chest up, positioned diagonally across the frame, seemingly leaning back on a soft surface. Subject in sharp focus with a softly blurred, bright, light-colored background.
+
+FACE AND IDENTITY (WITH REFERENCE)
+Male facial identity defined by reference. Thick, expressive, well-groomed dark eyebrows. Almond-shaped dark eyes. Straight nose. Warm smile showing straight, bright white teeth. Features a thin, neatly trimmed mustache and a small goatee. Distinctive facial details preserved, including a visible small mole/beauty mark on the right cheek.
+
+POSE AND BODY LANGUAGE
+Relaxed, reclining posture. The subject is holding one hand up towards the camera in a casual thumbs-up gesture. Head tilted slightly to the side. Friendly, confident, and approachable expression with a bright, genuine smile.
+
+HAIR
+Short black hair with textured, wavy volume on top and neatly tapered/faded sides. High strand separation and realistic density. No artificial shine.
+
+SKIN AND REALISM
+Light to medium skin tone with warm undertones. Visible microtexture across face and arms. Realistic skin sheen and natural highlights on the forehead and nose. No artificial smoothing.
+
+CLOTHING
+Loose-fitting, casual bright mustard-yellow crew-neck t-shirt with soft, natural fabric folds.
+
+ACCESSORIES AND DETAILS
+Silver charm bracelet on the visible wrist. Detailed black and grey tattoos heavily covering the visible forearm and the back of the hand, notably featuring a prominent, intricate roaring tiger/lion face on the hand giving the thumbs up.
+
+ENVIRONMENT
+Clean, minimalist indoor setting. Subject is resting against a plush, bright white sofa or soft pillows. No clutter.
+
+LIGHTING
+Soft, diffused natural indoor lighting. Bright and balanced exposure that highlights the vividness of the yellow shirt and natural skin tones, creating gentle shadows under the chin and along the folds of the shirt.
+
+MOOD AND AESTHETICS
+Casual, friendly, and vibrant aesthetic. Positive, relaxed energy with a candid, influencer-style lifestyle feel. Warm and inviting atmosphere.
+
+STYLE AND FINAL QUALITY
+Ultra-photorealistic 3D rendering. Blender Cycles. 8K resolution. HDR lighting. Physically accurate shaders (skin, fabric, hair, accessories, tattoos). Impeccable facial fidelity. Realism compatible with IMVU/Second Life. No cartoonish style. No stylization. Maximum realism.
+</pre>
+
+    <button onclick="copyFallback('prompt1')">Copiar Prompt</button>
+    <div class="hint">Se o botão não funcionar, selecione o texto e copie manualmente.</div>
+  </div>
+
+</div>
+
+<footer>
+  © Prompts by Tezza — Conteúdo protegido. Não redistribuir.
+</footer>
+
+<script>
+  function copyFallback(id) {
+    const el = document.getElementById(id);
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    alert('Prompt copiado!');
+  }
+</script>
+
+</body>
+</html>
