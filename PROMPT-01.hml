@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompts by Tezza</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin-top: 10px;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .prompt-box {
+      background: #151515;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    .prompt-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background: #0d0d0d;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      user-select: text;
+    }
+    button {
+      margin-top: 12px;
+      background: #ffffff;
+      color: #000000;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #e0e0e0;
+    }
+    .hint {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Prompts by Tezza</h1>
+  <p>Página oficial para copiar prompts • Uso pessoal</p>
+</header>
+
+<div class="container">
+
+  <div class="prompt-box">
+    <div class="prompt-title">TEZZA PROMPTS
+    COLABORADOR OLIVER LEWIS </div>
+
+<pre id="prompt1">(TEZZA PROMPTS)
+marque @tezza.vu @oliverr.vuh
+site: /dreamina.capcut.com/      [AGENTE DE IA]
+
+ CONCEPT
+High-quality cinematic 3D CGI render in Blender, RPG game style, 8K UHD resolution. Focus on PBR materials, ultra-realistic textures, clean, and professional cinematic look.
+
+CAMERA AND COMPOSITION
+Selfie angle, slightly top-down view inside a vehicle. Composition focused on the character's face, torso, and hand. Soft, natural lighting coming from the car window to highlight facial volumetrics and skin details, creating a cinematic aesthetic.
+
+FACE AND IDENTITY (WITH REFERENCE)
+Young adult male face, strictly preserving the identity of the reference. Short black hair with a fade on the sides and a slightly messy/textured top. Light stubble with a goatee and a thin, stylized mustache.
+Skin Detail: The skin must have clearly visible pores, natural microtexture, and a slightly glossy finish (very GLOSSY skin please), ensuring there are no artificial glitter or sparkle particles on the face.
+
+MANDATORY CHARACTERISTICS AND RESTRICTIONS
+
+    Identity: Preserve the facial identity without altering features, marks, or overall face shape.
+
+    Hair and Face: Keep the hair black. Do not add tattoos to the face or neck (strictly remove any facial or neck tattoos).
+
+    Tattoos (Mandatory): Faithfully reproduce the visible arm and hand tattoos: the right arm features a panther/feline design, an eagle, and text; the back of the hand features a large stylized eye, arrows, and symbols (dots/marks) on the fingers.
+
+    Accessories: Include a thin silver chain with a small square pendant, a smartwatch with a white band, sunglasses resting on top of the head, and silver earrings (strictly leaving only one earring on each side).
+
+    Clothing: Basic solid black t-shirt with a car seatbelt crossing over the chest.
+
+    Restrictions: Do not alter facial details. Do not remove the mentioned accessories.
+
+POSE AND BACKGROUND
+Relaxed pose, sitting in the driver's seat of a car, giving a "thumbs up" sign with the tattooed hand resting near the lower chest. The background must be the interior of the car featuring dark leather seats, with the side window slightly blurred showing a road outside. Use depth of field (DoF) to keep the main focus sharply on the character.
+</pre>
+
+    <button onclick="copyFallback('prompt1')">Copiar Prompt</button>
+    <div class="hint">Se o botão não funcionar, selecione o texto e copie manualmente.</div>
+  </div>
+
+</div>
+
+<footer>
+  © Prompts by Tezza — Conteúdo protegido. Não redistribuir.
+</footer>
+
+<script>
+  function copyFallback(id) {
+    const el = document.getElementById(id);
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+    alert('Prompt copiado!');
+  }
+</script>
+
+</body>
+</html>
