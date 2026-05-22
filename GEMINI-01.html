@@ -306,11 +306,11 @@
     }
 
     @media(max-width:900px){
-      /* POSIÇÃO INTERMEDIÁRIA PARA TABLETS */
+      /* AJUSTE PARA TABLETS CONFORME A FOTO */
       .spiderman-falling { 
         position: absolute;
         right: 10px;
-        top: 200px; /* Ponto ideal entre v18 e v19 */
+        top: 150px; /* SUBIU PARA ALINHAR COM O TOPO DO CARD (CAIXA VERDE DA FOTO) */
         width: 160px;
         opacity: 0;
         animation: spiderMilesArrivalTablet 1s ease-out forwards;
@@ -319,8 +319,8 @@
 
       @keyframes spiderMilesArrivalTablet {
         0% { top: -100px; opacity: 0; transform: scale(0.7); }
-        50% { top: 210px; opacity: 1; transform: scale(1.1); }
-        100% { top: 200px; opacity: 1; transform: scale(1); }
+        50% { top: 160px; opacity: 1; transform: scale(1.1); }
+        100% { top: 150px; opacity: 1; transform: scale(1); }
       }
     }
 
@@ -330,16 +330,16 @@
       pre{ font-size:0.88rem; }
       button{ width:100%; }
 
-      /* POSIÇÃO INTERMEDIÁRIA PARA CELULARES */
+      /* AJUSTE PARA CELULARES CONFORME A FOTO */
       .spiderman-falling { 
-        top: 210px; /* Ajustado para ficar próximo ao título do prompt no mobile */
+        top: 140px; /* ALINHADO COM O TOPO DO CARD NO MOBILE */
         width: 130px;
       }
 
       @keyframes spiderMilesArrivalMobile {
         0% { top: -100px; opacity: 0; transform: scale(0.7); }
-        50% { top: 220px; opacity: 1; transform: scale(1.1); }
-        100% { top: 210px; opacity: 1; transform: scale(1); }
+        50% { top: 150px; opacity: 1; transform: scale(1.1); }
+        100% { top: 140px; opacity: 1; transform: scale(1); }
       }
     }
 
@@ -417,7 +417,7 @@ MOOD & AESTHETIC
 Casual everyday mirror selfie aesthetic. Natural, relaxed, and modern masculine vibe inspired by social media lifestyle imagery.
 
 STYLE & RENDER QUALITY
-Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 masculine beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired avatar repaint aesthetics, high-fidelity masculine CGI rendering, realistic atmospheric depth, polished virtual influencer styling, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI-avatar aesthetics instead of a real photograph.                 
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 masculine beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired avatar repaint aesthetics, high-fidelity masculine CGI rendering, realistic atmospheric depth, polished virtual influencer styling, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI-avatar aesthetics instead of a real photograph.               
 </pre>
         <button onclick="copyPrompt(event,'prompt1')">
           <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" alt="Spider"> Copiar Prompt
@@ -492,3 +492,4 @@ Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 
 
 </body>
 </html>
+
