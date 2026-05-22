@@ -2,131 +2,522 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prompts by Tezza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>OLIVER LEWIS • PROMPTS</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bangers&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0f0f0f;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
-    header {
-      padding: 30px 20px;
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#0a0a0a;
+      background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,0,0,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(0,0,255,0.15) 0%, transparent 50%);
+      min-height:100vh;
+      overflow-x:hidden;
+      color:#ffffff;
+      position:relative;
+    }
+
+    .web-background{
+      position:fixed;
+      inset:0;
+      background-image:
+      radial-gradient(circle at 50% 50%, transparent 0%, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size:50px 50px;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    /* CONTAINER PRINCIPAL PARA ANCORAGEM */
+    .main-wrapper {
+      position: relative;
+      max-width: 950px;
+      margin: auto;
+      min-height: 100vh;
+    }
+
+    /* MILES MORALES (ANCORADO AO CONTAINER) */
+    .spiderman-falling {
+      position: absolute; /* Agora é absoluto em relação ao main-wrapper */
+      right: -50px; /* Fica um pouco para fora do card à direita */
+      top: -400px; 
+      width: 280px;
+      height: auto;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      animation: spiderMilesArrival 1s ease-out forwards;
+    }
+
+    @keyframes spiderMilesArrival {
+      0% {
+        top: -400px;
+        opacity: 0;
+        transform: scale(0.7);
+      }
+      20% {
+        opacity: 1;
+      }
+      50% {
+        top: 60px; 
+        opacity: 1;
+        transform: scale(1.1);
+      }
+      70% {
+        top: 50px;
+        transform: scale(1);
+      }
+      100% {
+        top: 50px;
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ARANHAS FLUTUANTES (GIF) */
+    .floating-spider{
+      position:fixed;
+      width:120px;
+      height:auto;
+      opacity:0.25;
+      z-index:0;
+      pointer-events:none;
+      animation:float 7s ease-in-out infinite;
+    }
+
+    .spider-top-left{
+      top:30px;
+      left:20px;
+    }
+
+    .spider-bottom-right{
+      bottom:30px;
+      right:20px;
+      animation-delay:2s;
+    }
+
+    @keyframes float{
+
+      0%,100%{
+        transform:translateY(0px) rotate(0deg);
+      }
+
+      50%{
+        transform:translateY(-20px) rotate(15deg);
+      }
+
+    }
+
+    /* TEIAS CAINDO */
+
+    .falling-webs{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .falling-webs span{
+      position:absolute;
+      top:-10%;
+      font-size:24px;
+      opacity:0.4;
+      animation:fall linear infinite;
+    }
+
+    .falling-webs span:nth-child(1){
+      left:8%;
+      animation-duration:12s;
+    }
+
+    .falling-webs span:nth-child(2){
+      left:22%;
+      animation-duration:15s;
+    }
+
+    .falling-webs span:nth-child(3){
+      left:40%;
+      animation-duration:13s;
+    }
+
+    .falling-webs span:nth-child(4){
+      left:58%;
+      animation-duration:17s;
+    }
+
+    .falling-webs span:nth-child(5){
+      left:75%;
+      animation-duration:14s;
+    }
+
+    .falling-webs span:nth-child(6){
+      left:92%;
+      animation-duration:11s;
+    }
+
+    @keyframes fall{
+
+      0%{
+        transform:translateY(-100px) rotate(0deg);
+      }
+
+      100%{
+        transform:translateY(120vh) rotate(360deg);
+      }
+
+    }
+
+    /* HEADER */
+
+    header{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:70px 20px 45px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      margin-bottom:20px;
+    }
+
+    .logo span{
+      font-family:'Bangers', cursive;
+      font-size:5rem;
+      color:#e62429;
+      text-shadow:4px 4px 0 #000;
+      letter-spacing:3px;
+    }
+
+    .spider-icon-gif{
+      width:80px;
+      height:auto;
+      animation:pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse{
+
+      0%,100%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.2);
+      }
+
+    }
+
+    .sub{
+      color:#fff;
+      font-size:1.1rem;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      background:#005a9c;
+      display:inline-block;
+      padding:5px 20px;
+      transform:skew(-10deg);
+      box-shadow:5px 5px 0 #e62429;
+    }
+
+    /* CARD */
+
+    .container{
+      position:relative;
+      z-index:2;
+      padding:20px;
+    }
+
+    .prompt-box{
+      background:rgba(20,20,20,0.85);
+      backdrop-filter:blur(14px);
+      border:2px solid #e62429;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 0 30px rgba(230,36,41,0.3);
+      transition:0.3s;
+    }
+
+    .prompt-box:hover{
+      transform:translateY(-8px);
+      border-color:#005a9c;
+    }
+
+    .prompt-title{
+      font-family:'Bangers', cursive;
+      font-size:1.8rem;
+      border-left:5px solid #e62429;
+      padding-left:15px;
+      margin-bottom:18px;
+    }
+
+    pre{
+      white-space:pre-wrap;
+      background:#1a1a1a;
+      border:1px solid #333;
+      border-radius:12px;
+      padding:24px;
+      line-height:1.8;
+      color:#e0e0e0;
+      font-size:0.95rem;
+    }
+
+    /* BOTÃO */
+
+    button{
+      margin-top:24px;
+      border:none;
+      background:linear-gradient(135deg,#e62429,#b11b1f);
+      color:white;
+      padding:16px 40px;
+      border-radius:12px;
+      cursor:pointer;
+      font-family:'Bangers', cursive;
+      font-size:1.5rem;
+      transition:0.3s;
+      box-shadow:0 10px 25px rgba(230,36,41,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button img{
+      width: 30px;
+      height: auto;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      background:linear-gradient(135deg,#005a9c,#004a80);
+      box-shadow:0 16px 35px rgba(0,90,156,0.45);
+    }
+
+    /* MENSAGEM */
+
+    @keyframes fadeMessage{
+
+      0%{
+        opacity:0;
+        transform:
+        translateX(-50%)
+        translateY(30px)
+        skew(-10deg);
+      }
+
+      20%{
+        opacity:1;
+        transform:
+        translateX(-50%)
+        translateY(0)
+        skew(-10deg);
+      }
+
+      80%{
+        opacity:1;
+        transform:
+        translateX(-50%)
+        translateY(0)
+        skew(-10deg);
+      }
+
+      100%{
+        opacity:0;
+        transform:
+        translateX(-50%)
+        translateY(30px)
+        skew(-10deg);
+      }
+
+    }
+
+    #copy-message{
+      position:fixed;
+      bottom:50px;
+      left:50%;
+      transform:translateX(-50%) skew(-10deg);
+      background:#005a9c;
+      color:#ffffff;
+      padding:10px 25px;
+      display:none;
+      z-index:100000;
+      font-family:'Bangers', cursive;
+      letter-spacing:2px;
+      font-size:1.2rem;
+      text-transform:uppercase;
+      box-shadow:5px 5px 0 #e62429;
       text-align: center;
-      border-bottom: 1px solid #222;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      letter-spacing: 1px;
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:40px 20px;
+      color:#888;
+      position:relative;
+      z-index:2;
+      line-height:1.8;
     }
-    header p {
-      margin-top: 10px;
-      color: #aaa;
-      font-size: 0.95rem;
+
+    /* MOBILE */
+
+    @media(max-width:1050px){
+      .spiderman-falling {
+        right: 20px;
+        width: 180px;
+      }
     }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+
+    @media(max-width:700px){
+
+      .logo span{
+        font-size:3rem;
+      }
+
+      .spider-icon-gif{
+        width:60px;
+      }
+
+      pre{
+        font-size:0.88rem;
+      }
+
+      button{
+        width:100%;
+      }
+
+      .spiderman-falling {
+        right: 10px;
+        width: 140px;
+        top: -300px;
+      }
+
     }
-    .prompt-box {
-      background: #151515;
-      border: 1px solid #262626;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 25px;
-    }
-    .prompt-title {
-      font-weight: bold;
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-    pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      background: #0d0d0d;
-      padding: 15px;
-      border-radius: 8px;
-      border: 1px solid #222;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      user-select: text;
-    }
-    button {
-      margin-top: 12px;
-      background: #ffffff;
-      color: #000000;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    button:hover {
-      background: #e0e0e0;
-    }
-    .hint {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: #888;
-    }
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.8rem;
-      color: #777;
-      border-top: 1px solid #222;
-    }
+
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Prompts by Tezza</h1>
-  <p>Página oficial para copiar prompts • Uso pessoal</p>
-</header>
+  <div class="web-background"></div>
 
-<div class="container">
+  <div class="main-wrapper">
+    <!-- MILES MORALES (ANCORADO AO WRAPPER) -->
+    <img id="miles-morales" src="" class="spiderman-falling" alt="Miles Morales">
 
-  <div class="prompt-box">
-    <div class="prompt-title">TEZZA PROMPTS
-    COLABORADOR OLIVER LEWIS </div>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" class="spider-icon-gif" alt="Spider">
+        <span>OLIVER LEWIS</span>
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" class="spider-icon-gif" alt="Spider">
+      </div>
+      <div class="sub">
+        TEZZA PROMPTS OFICIAL
+      </div>
+    </header>
 
-<pre id="prompt1">(TEZZA PROMPTS)
-marque @tezza.vu @oliverr.vuh
-GEMINI   [MODO PRO]
+    <!-- CONTAINER -->
+    <div class="container">
+      <div class="prompt-box">
+        <div class="prompt-title">
+          OLIVER LEWIS COLABORADOR
+        </div>
+        <pre id="prompt1">
+GEMINI [MODO PRO]
 
 [COLOQUE O SEU PROMPT AQUI]
+          
 </pre>
+        <button onclick="copyPrompt(event,'prompt1')">
+          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" alt="Spider"> Copiar Prompt
+        </button>
+      </div>
+    </div>
 
-    <button onclick="copyFallback('prompt1')">Copiar Prompt</button>
-    <div class="hint">Se o botão não funcionar, selecione o texto e copie manualmente.</div>
+    <!-- FOOTER -->
+    <footer>
+      MARQUE oliverr.vuh
+      <br>
+      OLIVER LEWIS • TEZZA PROMPTS — Conteúdo protegido.
+    </footer>
   </div>
 
-</div>
+  <!-- ELEMENTOS FORA DO WRAPPER (FIXOS NO FUNDO) -->
+  <div class="falling-webs">
+    <span>🕸️</span>
+    <span>🕸️</span>
+    <span>🕸️</span>
+    <span>🕸️</span>
+    <span>🕸️</span>
+    <span>🕸️</span>
+  </div>
 
-<footer>
-  © Prompts by Tezza — Conteúdo protegido. Não redistribuir.
-</footer>
+  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" class="floating-spider spider-top-left" alt="Spider">
+  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" class="floating-spider spider-bottom-right" alt="Spider">
 
-<script>
-  function copyFallback(id) {
-    const el = document.getElementById(id);
-    const range = document.createRange();
-    range.selectNodeContents(el);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand('copy');
-    selection.removeAllRanges();
-    alert('Prompt copiado!');
-  }
-</script>
+  <!-- MENSAGEM -->
+  <div id="copy-message">
+    PROMPT COPIADO COM SUCESSO
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    window.addEventListener('load', () => {
+      const miles = document.getElementById('miles-morales');
+      const gifUrl = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxkeHJ6MXpxa3NicHM3NzVpYjFtNTIxNWVyMGUybTZnd2pmazVveiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QP7Iw9BfERn7S2UK4e/giphy.gif";
+      
+      miles.src = gifUrl + "?t=" + new Date().getTime();
+
+      setTimeout(() => {
+        miles.style.display = 'none';
+      }, 2000); 
+    });
+
+    async function copyPrompt(event,id){
+      const el = document.getElementById(id);
+      try{
+        await navigator.clipboard.writeText(el.innerText);
+      } catch(err){
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        selection.removeAllRanges();
+      }
+      showMessage();
+    }
+
+    function showMessage(){
+      const msg = document.getElementById("copy-message");
+      msg.style.display = "block";
+      msg.style.animation = "none";
+      void msg.offsetWidth;
+      msg.style.animation = "fadeMessage 2.5s ease forwards";
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 2500);
+    }
+  </script>
 
 </body>
 </html>
