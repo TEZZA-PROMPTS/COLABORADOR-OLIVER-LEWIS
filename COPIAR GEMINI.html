@@ -456,14 +456,14 @@
 
     @media(max-width:900px){
       .spiderman-falling {
-        right: 20px; /* Afastado da borda para não cortar */
-        width: 220px; /* Aumentado para o tamanho do tablet */
+        right: 20px; /* Voltado para a direita conforme estava bom */
+        width: 220px;
         animation: spiderMilesArrivalTablet 1s ease-out forwards;
       }
       @keyframes spiderMilesArrivalTablet {
         0%  { top: -300px; opacity: 0; transform: scale(0.7); }
         20% { opacity: 1; }
-        50% { top: 170px; opacity: 1; transform: scale(1.1); } /* Descido em ~100px (dois dedos) */
+        50% { top: 170px; opacity: 1; transform: scale(1.1); }
         70% { top: 155px; transform: scale(1); }
         100%{ top: 160px; opacity: 1; transform: scale(1); }
       }
@@ -475,17 +475,17 @@
       pre{ font-size:0.9rem; padding: 20px; }
       button{ width:100%; font-size: 1.5rem; }
       .spiderman-falling {
-        right: 10px; /* Movido para a direita conforme marcação */
+        right: 10px;
         transform: none;
-        width: 140px; /* Ajustado tamanho para a lateral */
+        width: 140px;
         animation: spiderMilesArrivalMobile 1s ease-out forwards !important;
       }
       @keyframes spiderMilesArrivalMobile {
         0%  { top: -200px; opacity: 0; transform: scale(0.7); }
         20% { opacity: 1; }
-        50% { top: 160px; opacity: 1; transform: scale(1.1); } /* Posicionado na altura da caixa de prompt */
-        70% { top: 145px; transform: scale(1); }
-        100%{ top: 150px; opacity: 1; transform: scale(1); }
+        50% { top: 200px; opacity: 1; transform: scale(1.1); } /* Descido mais um pouco (totalizando o ajuste do dedo midinho) */
+        70% { top: 185px; transform: scale(1); }
+        100%{ top: 190px; opacity: 1; transform: scale(1); }
       }
       .spiderverse-bam{ width:130px; height:130px; font-size:2rem; }
       .spiderverse-copy-title { font-size: 4rem; }
