@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO LIMPO PARA O LINK -->
+  <title>OLIVER LEWIS • PROMPTS</title>
+
+  <!-- CONFIGURAÇÃO PARA O LINK FICAR COMPACTO -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="OLIVER LEWIS • PROMPTS">
+  <meta property="og:title" content="OLIVER LEWIS • PROMPTS">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADOR-OLIVER-LEWIS/GEMINI-01.html">
+  <meta name="description" content="TEZZA PROMPTS OFICIAL">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bangers&display=swap" rel="stylesheet">
+
+  <style>
+    /* CURSOR SETA ESTILO SPIDER-VERSE */
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      cursor: url('https://cur.cursors-4u.net/games/gam-4/gam372.cur'), auto !important;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background-color: #050505;
+      background-image: 
+        radial-gradient(circle at 20% 35%, rgba(230, 36, 41, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(0, 90, 156, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(255, 230, 0, 0.08) 0%, transparent 60%),
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 18px 18px;
+      min-height:100vh;
+      overflow-x:hidden;
+      color:#ffffff;
+      position:relative;
+      transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    body.spiderverse-active{
+      background-color: #020014;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(255, 230, 0, 0.45), transparent 35%),
+        radial-gradient(circle at 80% 15%, rgba(0, 214, 255, 0.45), transparent 35%),
+        radial-gradient(circle at 50% 70%, rgba(230, 36, 41, 0.55), transparent 45%),
+        radial-gradient(rgba(255, 255, 255, 0.12) 2px, transparent 2px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 12px 12px;
+    }
+
+    body.spiderverse-active .main-wrapper{
+      filter: saturate(2.2) contrast(1.2) hue-rotate(5deg);
+      animation: spiderversePageShakeContinuous 3s steps(10, end) infinite;
+    }
+
+    @keyframes spiderversePageShakeContinuous {
+      0%, 100% { transform: translate(0,0); }
+      10% { transform: translate(-2px, 1px); }
+      20% { transform: translate(1px, -2px); }
+      30% { transform: translate(-1px, 2px); }
+      40% { transform: translate(2px, -1px); }
+    }
+
+    body.just-copied .main-wrapper {
+      animation: spiderversePageShakeImpact 0.55s steps(6, end) both !important;
+    }
+
+    @keyframes spiderversePageShakeImpact{
+      0%{ transform:translate(0,0) skew(0deg); }
+      15%{ transform:translate(-10px,5px) skew(-2deg); }
+      30%{ transform:translate(8px,-6px) skew(2deg); }
+      45%{ transform:translate(-6px,-4px) skew(-1deg); }
+      60%{ transform:translate(7px,5px) skew(2deg); }
+      75%{ transform:translate(-4px,3px) skew(-1deg); }
+      100%{ transform:translate(0,0) skew(0deg); }
+    }
+
+    .web-background{
+      position:fixed;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .main-wrapper {
+      position: relative;
+      max-width: 950px;
+      margin: auto;
+      min-height: 100vh;
+      z-index: 2;
+      transition: filter 0.5s ease;
+    }
+
+    /* MILES MORALES CAINDO - RESTAURADO TEMPO 1S E AJUSTADO POSIÇÃO */
+    .spiderman-falling {
+      position: absolute; 
+      right: -60px; 
+      top: -400px; 
+      width: 300px;
+      height: auto;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0;
+      animation: spiderMilesArrival 1s ease-out forwards;
+    }
+
+    @keyframes spiderMilesArrival {
+      0% { top: -400px; opacity: 0; transform: scale(0.7); }
+      20% { opacity: 1; }
+      50% { top: 70px; opacity: 1; transform: scale(1.1); }
+      70% { top: 55px; transform: scale(1); }
+      100% { top: 60px; opacity: 1; transform: scale(1); }
+    }
+
+    .floating-spider{
+      position:fixed;
+      width:130px;
+      height:auto;
+      opacity:0.35;
+      z-index:1;
+      pointer-events:none;
+      animation:float 8s ease-in-out infinite;
+      filter: drop-shadow(0 0 15px rgba(230, 36, 41, 0.4));
+    }
+
+    .spider-top-left{ top:40px; left:30px; }
+    .spider-bottom-right{ bottom:40px; right:30px; animation-delay:2.5s; }
+
+    @keyframes float{
+      0%,100%{ transform:translateY(0px) rotate(-5deg); }
+      50%{ transform:translateY(-30px) rotate(10deg); }
+    }
+
+    .falling-webs{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .falling-webs span{
+      position:absolute;
+      top:-10%;
+      font-size:28px;
+      opacity:0.3;
+      animation:fall linear infinite;
+      filter: drop-shadow(0 0 5px white);
+    }
+
+    .falling-webs span:nth-child(1){ left:10%; animation-duration:14s; }
+    .falling-webs span:nth-child(2){ left:25%; animation-duration:18s; }
+    .falling-webs span:nth-child(3){ left:45%; animation-duration:15s; }
+    .falling-webs span:nth-child(4){ left:65%; animation-duration:20s; }
+    .falling-webs span:nth-child(5){ left:80%; animation-duration:16s; }
+    .falling-webs span:nth-child(6){ left:95%; animation-duration:13s; }
+
+    @keyframes fall{
+      0%{ transform:translateY(-100px) rotate(0deg) scale(0.8); }
+      50%{ transform: scale(1.1); }
+      100%{ transform:translateY(120vh) rotate(720deg) scale(0.8); }
+    }
+
+    header{
+      position:relative;
+      z-index:3;
+      text-align:center;
+      padding:80px 20px 50px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:22px;
+      margin-bottom:25px;
+    }
+
+    .logo span{
+      font-family:'Bangers', cursive;
+      font-size:5.5rem;
+      color:#e62429;
+      text-shadow:
+        5px 5px 0 #000,
+        -2px -2px 0 #00d6ff;
+      letter-spacing:4px;
+      transform: skew(-5deg);
+    }
+
+    .spider-icon-gif{
+      width:85px;
+      height:auto;
+      animation:pulse 2.5s infinite ease-in-out;
+      filter: drop-shadow(0 0 10px rgba(230, 36, 41, 0.6));
+    }
+
+    @keyframes pulse{
+      0%,100%{ transform:scale(1) rotate(0deg); }
+      50%{ transform:scale(1.25) rotate(10deg); }
+    }
+
+    .sub{
+      color:#fff;
+      font-size:1.2rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      background:#005a9c;
+      display:inline-block;
+      padding:8px 25px;
+      transform:skew(-15deg);
+      box-shadow:
+        8px 8px 0 #e62429,
+        -4px -4px 0 #000;
+      border: 2px solid #000;
+    }
+
+    .container{
+      position:relative;
+      z-index:3;
+      padding:25px;
+    }
+
+    .prompt-box{
+      background:rgba(10,10,10,0.92);
+      backdrop-filter:blur(16px);
+      border:3px solid #e62429;
+      border-radius:24px;
+      padding:35px;
+      box-shadow:
+        0 0 40px rgba(230,36,41,0.25),
+        15px 15px 0 rgba(0,0,0,0.8);
+      transition:0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .prompt-box:hover{
+      transform:translateY(-12px) scale(1.01);
+      border-color:#00d6ff;
+      box-shadow:
+        0 0 50px rgba(0,214,255,0.3),
+        20px 20px 0 rgba(0,0,0,0.9);
+    }
+
+    .prompt-title{
+      font-family:'Bangers', cursive;
+      font-size:2rem;
+      border-left:6px solid #e62429;
+      padding-left:18px;
+      margin-bottom:22px;
+      color: #00d6ff;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    pre{
+      white-space:pre-wrap;
+      background:#050505;
+      border:2px solid #222;
+      border-radius:15px;
+      padding:28px;
+      line-height:1.9;
+      color:#f0f0f0;
+      font-size:1rem;
+      box-shadow: inset 0 0 20px rgba(0,0,0,1);
+    }
+
+    button{
+      margin-top:30px;
+      border:3px solid #000;
+      background:linear-gradient(135deg,#e62429,#b11b1f);
+      color:white;
+      padding:18px 45px;
+      border-radius:15px;
+      cursor:pointer;
+      font-family:'Bangers', cursive;
+      font-size:1.7rem;
+      transition:0.3s;
+      box-shadow:
+        0 12px 30px rgba(230,36,41,0.4),
+        6px 6px 0 #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover{
+      transform:scale(1.08) rotate(-1deg);
+      background:linear-gradient(135deg,#005a9c,#004a80);
+      box-shadow:
+        0 18px 40px rgba(0,90,156,0.5),
+        8px 8px 0 #000;
+      animation: glitchBtn 0.25s infinite;
+    }
+
+    @keyframes glitchBtn {
+      0% { transform: translate(0) scale(1.08); }
+      25% { transform: translate(-3px, 2px) scale(1.08) skew(1deg); }
+      50% { transform: translate(3px, -2px) scale(1.08) skew(-1deg); }
+      75% { transform: translate(-2px, -3px) scale(1.08); }
+      100% { transform: translate(0) scale(1.08); }
+    }
+
+    button img{ width: 35px; height: auto; }
+
+    /* EFEITO SPIDER-VERSE AO COPIAR O PROMPT */
+    #spiderverse-copy-effect{
+      position:fixed;
+      inset:0;
+      z-index:99999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,230,0,0.65), transparent 35%),
+        radial-gradient(circle at 80% 15%, rgba(0,214,255,0.55), transparent 35%),
+        radial-gradient(circle at 50% 70%, rgba(230,36,41,0.75), transparent 45%),
+        rgba(0,0,0,0.92);
+      opacity:0;
+    }
+
+    #spiderverse-copy-effect.is-active{
+      display:flex;
+      animation:spiderverseOverlayInOut 2.3s cubic-bezier(.16,.84,.44,1) forwards;
+    }
+
+    .spiderverse-content{
+      position:relative;
+      z-index:3;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:25px;
+      transform: scale(0.85);
+      animation:copyCardPop 2.3s cubic-bezier(.18,.89,.32,1.28) forwards;
+    }
+
+    .spiderverse-content img{
+      width:min(90vw, 480px);
+      height:auto;
+      filter:
+        drop-shadow(15px 18px 0 rgba(0,0,0,0.95)) 
+        drop-shadow(-10px -8px 0 rgba(0,214,255,0.8));
+      animation:copyGifPunch 0.7s steps(3, end) infinite;
+    }
+
+    .spiderverse-copy-title{
+      position:relative;
+      font-family:'Bangers', cursive;
+      font-size:clamp(4rem, 14vw, 9rem);
+      line-height:0.85;
+      color:#ffe600;
+      text-transform:uppercase;
+      letter-spacing:5px;
+      text-align:center;
+      text-shadow:
+        7px 7px 0 #000,
+        -5px -5px 0 #00d6ff,
+        10px 0 0 #e62429;
+      transform:skew(-10deg) rotate(-3deg);
+      animation:titleGlitch 0.35s steps(2, end) infinite;
+    }
+
+    .spiderverse-bam{
+      position:absolute;
+      z-index:4;
+      width:200px;
+      height:200px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Bangers', cursive;
+      font-size:3rem;
+      color:#050505;
+      background:#ffe600;
+      clip-path:polygon(50% 0%, 60% 30%, 95% 16%, 72% 45%, 100% 55%, 68% 63%, 82% 96%, 52% 74%, 31% 100%, 33% 66%, 0% 72%, 25% 50%, 4% 23%, 38% 32%);
+      filter:drop-shadow(10px 10px 0 #000);
+      animation:bamBurst 2.3s ease-out forwards;
+    }
+
+    .spiderverse-bam.one{ top:-15%; left:-15%; --bam-rot:-22deg; }
+    .spiderverse-bam.two{ bottom:-10%; right:-15%; --bam-rot:18deg; background:#00d6ff; color:#fff; }
+
+    @keyframes spiderverseOverlayInOut{
+      0%{ opacity:0; }
+      10%{ opacity:1; }
+      85%{ opacity:1; }
+      100%{ opacity:0; }
+    }
+
+    @keyframes copyCardPop{
+      0%{ opacity:0; transform:rotate(-12deg) translateY(80px) scale(0.3); }
+      15%{ opacity:1; transform:rotate(5deg) translateY(0) scale(1.15); }
+      30%{ transform:rotate(-3deg) scale(1); }
+      85%{ opacity:1; transform:rotate(-3deg) scale(1); }
+      100%{ opacity:0; transform:rotate(6deg) translateY(-40px) scale(0.8); }
+    }
+
+    @keyframes copyGifPunch{
+      0%,100%{ transform:translate(0,0) rotate(0deg); }
+      33%{ transform:translate(-12px,6px) rotate(-4deg); }
+      66%{ transform:translate(10px,-8px) rotate(4deg); }
+    }
+
+    @keyframes titleGlitch{
+      0%,100%{ text-shadow:7px 7px 0 #000, -5px -5px 0 #00d6ff, 10px 0 0 #e62429; transform:skew(-10deg) rotate(-3deg); }
+      50%{ text-shadow:10px 3px 0 #000, -10px 0 0 #00d6ff, 15px -3px 0 #e62429; transform:skew(-12deg) rotate(-4deg) translate(5px, -3px); }
+    }
+
+    @keyframes bamBurst{
+      0%{ opacity:0; transform:rotate(var(--bam-rot, 0deg)) scale(0); }
+      15%{ opacity:1; transform:rotate(var(--bam-rot, 0deg)) scale(1.25); }
+      80%{ opacity:1; transform:rotate(var(--bam-rot, 0deg)) scale(1); }
+      100%{ opacity:0; transform:rotate(var(--bam-rot, 0deg)) scale(0.4); }
+    }
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      color:#aaa;
+      position:relative;
+      z-index:3;
+      line-height:2;
+      font-weight: 500;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    /* MEDIA QUERIES PARA RESPONSIVIDADE DO MILES - FOCO NA POSIÇÃO */
+    @media(max-width:1100px){
+      .spiderman-falling { right: -20px; width: 250px; }
+    }
+
+    @media(max-width:900px){
+      .spiderman-falling { right: 10px; top: 150px; width: 200px; animation: spiderMilesArrivalTablet 1s ease-out forwards; }
+      @keyframes spiderMilesArrivalTablet { 
+        0% { top: -200px; opacity: 0; transform: scale(0.7); } 
+        50% { top: 160px; opacity: 1; transform: scale(1.1); } 
+        100% { top: 150px; opacity: 1; transform: scale(1); } 
+      }
+    }
+
+    @media(max-width:700px){
+      .logo span{ font-size:3.5rem; }
+      .spider-icon-gif{ width:65px; }
+      pre{ font-size:0.9rem; padding: 20px; }
+      button{ width:100%; font-size: 1.5rem; }
+      .spiderman-falling { top: 140px; right: 5px; width: 140px; }
+      .spiderverse-bam{ width:130px; height:130px; font-size:2rem; }
+      .spiderverse-copy-title { font-size: 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="web-background"></div>
+  <div class="main-wrapper">
+    <img id="miles-morales" src="" class="spiderman-falling" alt="">
+    
+    <header>
+      <div class="logo">
+        <div id="spider-left"></div>
+        <span>OLIVER LEWIS</span>
+        <div id="spider-right"></div>
+      </div>
+      <div class="sub">TEZZA PROMPTS OFICIAL</div>
+    </header>
+
+    <div class="container">
+      <div class="prompt-box">
+        <div class="prompt-title">OLIVER LEWIS COLABORADOR</div>
+        <pre id="prompt1">
+          
+GEMINI [MODO PRO]
+        
+Ultra-realistic cinematic avatar 3D male portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 realism and high-end IMVU/The Sims virtual aesthetics. Clearly a fictional digital avatar and not a real photograph. Hyper-detailed virtual influencer design with stylized CGI masculine proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
+
+CAMERA & COMPOSITION
+Vertical 9:16 aspect ratio mirror selfie captured indoors in a bathroom environment. Medium close-up composition from the chest upward, emphasizing the face, arm, accessories, and smartphone. Slightly angled frontal smartphone perspective with natural handheld framing. Subject positioned slightly off-center due to mirror composition, with the phone prominently visible in the foreground. Sharp focus on the face, hand, and upper torso while the tiled background remains softly secondary with subtle depth-of-field.
+
+POSE & BODY POSITIONING
+Subject standing in a relaxed masculine posture taking a mirror selfie. Upper body slightly angled to the side, with one arm raised holding the smartphone and the other arm relaxed downward. Shoulders relaxed with natural muscle tension in the forearm. Torso upright with minimal twist, maintaining a casual and grounded stance.
+
+HEAD POSITION & GAZE
+Head tilted slightly downward and to the side, aligned with the mirror selfie angle. Chin lowered subtly, emphasizing the jawline. Eyes directed toward the phone screen, creating a candid and introspective feel. Natural alignment between head tilt and body positioning enhances realism.
+
+FACIAL EXPRESSION
+Calm and neutral masculine expression with relaxed lips and subtle seriousness. Expression conveys quiet confidence and composure without exaggeration. Slight softness in the eyes reinforces natural candid realism.
+
+FACE & IDENTITY
+Adult male CGI avatar with defined masculine facial structure, sharp jawline, balanced cheekbones, almond-shaped eyes, straight nose bridge, and proportionate lips. Subtle facial hair presence minimal and clean. Facial identity strictly preserved from the reference image including exact proportions, spacing, and structure.
+
+HAIR
+Short black hair mostly concealed under a cap, with visible clean fade on the sides. Hairline sharp and well-defined, maintaining natural density and realism.
+
+ACCESSORIES & DETAILS
+Black cap with white graphic design worn forward. Thin metallic chain necklace with subtle reflection. Bracelet on the wrist with solid structured design. Small stud earring visible. Smartphone held in hand with visible camera area. No tattoo descriptions included. Skin texture visible across neck and arm.
+
+OUTFIT
+Dark navy athletic t-shirt with light contrasting panels on the shoulders and visible logo detail. Fabric appears lightweight with natural folds and realistic draping consistent with the pose.
+
+BODY & PHYSIQUE
+Athletic masculine physique with defined arms, structured shoulders, and balanced upper-body proportions. Natural muscle presence visible through posture and clothing fit. Proportions strictly preserved from the reference.
+
+SKIN & REALISM
+Ultra-detailed skin rendering with visible pores, natural tone variation, and soft highlights. Realistic skin response to indoor lighting with subtle reflections across the face and arm. Physically accurate subsurface scattering enhances depth while maintaining CGI realism.
+
+LIGHTING
+Soft indoor bathroom lighting with even illumination across the face and body. Gentle highlights on the skin and accessories with minimal harsh shadows. Clean and realistic lighting consistent with indoor mirror selfie conditions.
+
+ENVIRONMENT
+Bathroom interior with tiled wall surfaces and neutral tones. Mirror reflection defines composition while background remains simple and functional. Environment supports realism without distracting from the subject.
+
+MOOD & AESTHETIC
+Calm, minimal, and introspective masculine aesthetic. Casual lifestyle energy with clean influencer-style presentation. Subtle confidence and understated presence dominate the atmosphere.
+
+STYLE & RENDER QUALITY
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 masculine beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired avatar repaint aesthetics, high-fidelity masculine CGI rendering, realistic atmospheric depth, polished virtual influencer styling, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI-avatar aesthetics instead of a real photograph.
+          
+        </pre>
+        <button onclick="copyPrompt(event,'prompt1')">
+          <div id="btn-spider"></div> Copiar Prompt
+        </button>
+      </div>
+    </div>
+
+    <footer>
+      MARQUE oliverr.vuh
+      <br>
+      OLIVER LEWIS • TEZZA PROMPTS — Conteúdo protegido.
+    </footer>
+  </div>
+
+  <div class="falling-webs">
+    <span>🕸️</span><span>🕸️</span><span>🕸️</span><span>🕸️</span><span>🕸️</span><span>🕸️</span>
+  </div>
+
+  <div id="spider-float-1"></div>
+  <div id="spider-float-2"></div>
+
+  <div id="spiderverse-copy-effect" aria-hidden="true">
+    <div class="spiderverse-content">
+      <div class="spiderverse-bam one">THWIP!</div>
+      <img id="copy-spiderverse-gif" src="" alt="">
+      <div class="spiderverse-copy-title">PROMPT COPIADO!</div>
+      <div class="spiderverse-bam two">POW!</div>
+    </div>
+  </div>
+
+  <script>
+    const spiderGif = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif";
+    const milesGif = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxkeHJ6MXpxa3NicHM3NzVpYjFtNTIxNWVyMGUybTZnd2pmazVveiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QP7Iw9BfERn7S2UK4e/giphy.gif";
+    const copySpiderverseGif = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzUzYTAwb3V5bGhjcjF6cjg2OGs2eDZzZ2Iwem1uNXYyZ3RrMHg0MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/x7WXCEYwnbvDe3GM3e/giphy.gif";
+    const SPIDER_THWIP_AUDIO_URL = "https://www.myinstants.com/media/sounds/black-suit-spider-man.mp3";
+
+    window.addEventListener('load', () => {
+      document.getElementById('spider-left').innerHTML = `<img src="${spiderGif}" class="spider-icon-gif" alt="">`;
+      document.getElementById('spider-right').innerHTML = `<img src="${spiderGif}" class="spider-icon-gif" alt="">`;
+      document.getElementById('spider-float-1').innerHTML = `<img src="${spiderGif}" class="floating-spider spider-top-left" alt="">`;
+      document.getElementById('spider-float-2').innerHTML = `<img src="${spiderGif}" class="floating-spider spider-bottom-right" alt="">`;
+      document.getElementById('btn-spider').innerHTML = `<img src="${spiderGif}" style="width:35px;height:auto;" alt="">`;
+
+      const miles = document.getElementById('miles-morales');
+      miles.src = milesGif + "?t=" + new Date().getTime();
+      setTimeout(() => { miles.style.display = 'none'; }, 2000); // VOLTADO PARA 2S COMO NO ORIGINAL
+
+      document.getElementById('copy-spiderverse-gif').src = copySpiderverseGif;
+    });
+
+    async function copyPrompt(event,id){
+      const el = document.getElementById(id);
+      try{
+        await navigator.clipboard.writeText(el.innerText.trim());
+      } catch(err){
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        selection.removeAllRanges();
+      }
+      playSpiderVerseSound();
+      triggerSpiderVerseEffect();
+    }
+
+    function triggerSpiderVerseEffect(){
+      const overlay = document.getElementById('spiderverse-copy-effect');
+      const gif = document.getElementById('copy-spiderverse-gif');
+
+      gif.src = copySpiderverseGif + "?t=" + new Date().getTime();
+      overlay.classList.remove('is-active');
+      
+      document.body.classList.add('spiderverse-active');
+      document.body.classList.add('just-copied');
+      void overlay.offsetWidth;
+      overlay.classList.add('is-active');
+
+      setTimeout(() => {
+        overlay.classList.remove('is-active');
+        document.body.classList.remove('just-copied');
+      }, 2300);
+    }
+
+    function playSpiderVerseSound(){
+      if(SPIDER_THWIP_AUDIO_URL){
+        const audio = new Audio(SPIDER_THWIP_AUDIO_URL);
+        audio.volume = 0.9;
+        audio.play().catch(err => console.warn("Áudio bloqueado:", err));
+      }
+    }
+  </script>
+</body>
+</html>
