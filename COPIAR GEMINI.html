@@ -344,7 +344,12 @@
 
     #spiderverse-copy-effect.is-active{
       display:flex;
-      animation:spiderverseOverlayInOut 2.3s cubic-bezier(.16,.84,.44,1) forwards;
+      animation:spiderverseOverlayIn 0.5s cubic-bezier(.16,.84,.44,1) forwards;
+    }
+    
+    @keyframes spiderverseOverlayIn{
+      0%{ opacity:0; }
+      100%{ opacity:1; }
     }
 
     .spiderverse-content{
@@ -356,7 +361,12 @@
       justify-content:center;
       gap:25px;
       transform: scale(0.85);
-      animation:copyCardPop 2.3s cubic-bezier(.18,.89,.32,1.28) forwards;
+      animation:copyCardPopIn 0.6s cubic-bezier(.18,.89,.32,1.28) forwards;
+    }
+    
+    @keyframes copyCardPopIn{
+      0%{ opacity:0; transform:rotate(-12deg) translateY(80px) scale(0.3); }
+      100%{ opacity:1; transform:rotate(-3deg) scale(1); }
     }
 
     .spiderverse-content img{
@@ -405,20 +415,7 @@
     .spiderverse-bam.one{ top:-15%; left:-15%; --bam-rot:-22deg; }
     .spiderverse-bam.two{ bottom:-10%; right:-15%; --bam-rot:18deg; background:#00d6ff; color:#fff; }
 
-    @keyframes spiderverseOverlayInOut{
-      0%{ opacity:0; }
-      10%{ opacity:1; }
-      85%{ opacity:1; }
-      100%{ opacity:0; }
-    }
-
-    @keyframes copyCardPop{
-      0%{ opacity:0; transform:rotate(-12deg) translateY(80px) scale(0.3); }
-      15%{ opacity:1; transform:rotate(5deg) translateY(0) scale(1.15); }
-      30%{ transform:rotate(-3deg) scale(1); }
-      85%{ opacity:1; transform:rotate(-3deg) scale(1); }
-      100%{ opacity:0; transform:rotate(6deg) translateY(-40px) scale(0.8); }
-    }
+    /* Animações de saída removidas para manter fixo */
 
     @keyframes copyGifPunch{
       0%,100%{ transform:translate(0,0) rotate(0deg); }
@@ -594,10 +591,7 @@ GEMINI [MODO PRO]
       void overlay.offsetWidth;
       overlay.classList.add('is-active');
 
-      setTimeout(() => {
-        overlay.classList.remove('is-active');
-        document.body.classList.remove('just-copied');
-      }, 2300);
+      // O setTimeout que removia as classes foi retirado para a tela ficar fixa.
     }
 
     function playSpiderVerseSound(){
