@@ -463,9 +463,9 @@
       @keyframes spiderMilesArrivalTablet {
         0%  { top: -300px; opacity: 0; transform: scale(0.7); }
         20% { opacity: 1; }
-        50% { top: 70px;  opacity: 1; transform: scale(1.1); }
-        70% { top: 55px;  transform: scale(1); }
-        100%{ top: 60px;  opacity: 1; transform: scale(1); }
+        50% { top: 170px; opacity: 1; transform: scale(1.1); } /* Descido em ~100px (dois dedos) */
+        70% { top: 155px; transform: scale(1); }
+        100%{ top: 160px; opacity: 1; transform: scale(1); }
       }
     }
 
@@ -475,17 +475,17 @@
       pre{ font-size:0.9rem; padding: 20px; }
       button{ width:100%; font-size: 1.5rem; }
       .spiderman-falling {
-        right: 50%;
-        transform: translateX(50%);
-        width: 160px; /* Aumentado para mais destaque */
+        right: 10px; /* Movido para a direita conforme marcação */
+        transform: none;
+        width: 140px; /* Ajustado tamanho para a lateral */
         animation: spiderMilesArrivalMobile 1s ease-out forwards !important;
       }
       @keyframes spiderMilesArrivalMobile {
-        0%  { top: -200px; opacity: 0; transform: translateX(50%) scale(0.7); }
+        0%  { top: -200px; opacity: 0; transform: scale(0.7); }
         20% { opacity: 1; }
-        50% { top: 80px;  opacity: 1; transform: translateX(50%) scale(1.1); } /* Descido para não cortar no topo */
-        70% { top: 65px;  transform: translateX(50%) scale(1); }
-        100%{ top: 70px;  opacity: 1; transform: translateX(50%) scale(1); }
+        50% { top: 160px; opacity: 1; transform: scale(1.1); } /* Posicionado na altura da caixa de prompt */
+        70% { top: 145px; transform: scale(1); }
+        100%{ top: 150px; opacity: 1; transform: scale(1); }
       }
       .spiderverse-bam{ width:130px; height:130px; font-size:2rem; }
       .spiderverse-copy-title { font-size: 4rem; }
