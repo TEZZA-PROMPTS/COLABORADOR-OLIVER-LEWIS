@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- TÍTULO LIMPO PARA O LINK -->
   <title>OLIVER LEWIS • PROMPTS</title>
+
+  <!-- CONFIGURAÇÃO PARA O LINK FICAR COMPACTO -->
+  <meta property="og:title" content="OLIVER LEWIS • PROMPTS">
+  <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADOR-OLIVER-LEWIS/GEMINI-01.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Removemos og:image e twitter:image para garantir o formato pequeno -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="OLIVER LEWIS • PROMPTS">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bangers&display=swap" rel="stylesheet">
 
   <style>
-
     *{
       margin:0;
       padding:0;
@@ -38,7 +47,6 @@
       pointer-events:none;
     }
 
-    /* CONTAINER PRINCIPAL PARA ANCORAGEM */
     .main-wrapper {
       position: relative;
       max-width: 950px;
@@ -46,7 +54,6 @@
       min-height: 100vh;
     }
 
-    /* MILES MORALES (ANCORADO AO WRAPPER) */
     .spiderman-falling {
       position: absolute; 
       right: -50px; 
@@ -60,31 +67,13 @@
     }
 
     @keyframes spiderMilesArrival {
-      0% {
-        top: -400px;
-        opacity: 0;
-        transform: scale(0.7);
-      }
-      20% {
-        opacity: 1;
-      }
-      50% {
-        top: 60px; 
-        opacity: 1;
-        transform: scale(1.1);
-      }
-      70% {
-        top: 50px;
-        transform: scale(1);
-      }
-      100% {
-        top: 50px;
-        opacity: 1;
-        transform: scale(1);
-      }
+      0% { top: -400px; opacity: 0; transform: scale(0.7); }
+      20% { opacity: 1; }
+      50% { top: 60px; opacity: 1; transform: scale(1.1); }
+      70% { top: 50px; transform: scale(1); }
+      100% { top: 50px; opacity: 1; transform: scale(1); }
     }
 
-    /* ARANHAS FLUTUANTES (GIF) */
     .floating-spider{
       position:fixed;
       width:120px;
@@ -95,23 +84,14 @@
       animation:float 7s ease-in-out infinite;
     }
 
-    .spider-top-left{
-      top:30px;
-      left:20px;
-    }
-
-    .spider-bottom-right{
-      bottom:30px;
-      right:20px;
-      animation-delay:2s;
-    }
+    .spider-top-left{ top:30px; left:20px; }
+    .spider-bottom-right{ bottom:30px; right:20px; animation-delay:2s; }
 
     @keyframes float{
       0%,100%{ transform:translateY(0px) rotate(0deg); }
       50%{ transform:translateY(-20px) rotate(15deg); }
     }
 
-    /* TEIAS CAINDO */
     .falling-webs{
       position:fixed;
       inset:0;
@@ -140,7 +120,6 @@
       100%{ transform:translateY(120vh) rotate(360deg); }
     }
 
-    /* HEADER */
     header{
       position:relative;
       z-index:2;
@@ -188,7 +167,6 @@
       box-shadow:5px 5px 0 #e62429;
     }
 
-    /* CARD */
     .container{
       position:relative;
       z-index:2;
@@ -229,7 +207,6 @@
       font-size:0.95rem;
     }
 
-    /* BOTÃO ORIGINAL */
     button{
       margin-top:24px;
       border:none;
@@ -250,23 +227,12 @@
       margin-right: auto;
     }
 
-    button img{
-      width: 30px;
-      height: auto;
-    }
+    button img{ width: 30px; height: auto; }
 
     button:hover{
       transform:scale(1.05);
       background:linear-gradient(135deg,#005a9c,#004a80);
       box-shadow:0 16px 35px rgba(0,90,156,0.45);
-    }
-
-    /* MENSAGEM */
-    @keyframes fadeMessage{
-      0%{ opacity:0; transform: translateX(-50%) translateY(30px) skew(-10deg); }
-      20%{ opacity:1; transform: translateX(-50%) translateY(0) skew(-10deg); }
-      80%{ opacity:1; transform: translateX(-50%) translateY(0) skew(-10deg); }
-      100%{ opacity:0; transform: translateX(-50%) translateY(30px) skew(-10deg); }
     }
 
     #copy-message{
@@ -287,7 +253,6 @@
       text-align: center;
     }
 
-    /* FOOTER */
     footer{
       text-align:center;
       padding:40px 20px;
@@ -297,84 +262,39 @@
       line-height:1.8;
     }
 
-    /* MOBILE / TABLET */
-    @media(max-width:1100px){
-      .spiderman-falling { 
-        right: 0px; 
-        width: 200px; 
-      }
-    }
-
+    @media(max-width:1100px){ .spiderman-falling { right: 0px; width: 200px; } }
     @media(max-width:900px){
-      /* AJUSTE PARA TABLETS CONFORME A FOTO */
-      .spiderman-falling { 
-        position: absolute;
-        right: 10px;
-        top: 150px; /* SUBIU PARA ALINHAR COM O TOPO DO CARD (CAIXA VERDE DA FOTO) */
-        width: 160px;
-        opacity: 0;
-        animation: spiderMilesArrivalTablet 1s ease-out forwards;
-        z-index: 10;
-      }
-
-      @keyframes spiderMilesArrivalTablet {
-        0% { top: -100px; opacity: 0; transform: scale(0.7); }
-        50% { top: 160px; opacity: 1; transform: scale(1.1); }
-        100% { top: 150px; opacity: 1; transform: scale(1); }
-      }
+      .spiderman-falling { position: absolute; right: 10px; top: 150px; width: 160px; opacity: 0; animation: spiderMilesArrivalTablet 1s ease-out forwards; z-index: 10; }
+      @keyframes spiderMilesArrivalTablet { 0% { top: -100px; opacity: 0; transform: scale(0.7); } 50% { top: 160px; opacity: 1; transform: scale(1.1); } 100% { top: 150px; opacity: 1; transform: scale(1); } }
     }
-
     @media(max-width:700px){
       .logo span{ font-size:3rem; }
       .spider-icon-gif{ width:60px; }
       pre{ font-size:0.88rem; }
       button{ width:100%; }
-
-      /* AJUSTE PARA CELULARES CONFORME A FOTO */
-      .spiderman-falling { 
-        top: 140px; /* ALINHADO COM O TOPO DO CARD NO MOBILE */
-        width: 130px;
-      }
-
-      @keyframes spiderMilesArrivalMobile {
-        0% { top: -100px; opacity: 0; transform: scale(0.7); }
-        50% { top: 150px; opacity: 1; transform: scale(1.1); }
-        100% { top: 140px; opacity: 1; transform: scale(1); }
-      }
+      .spiderman-falling { top: 140px; width: 130px; }
     }
-
   </style>
 </head>
-
 <body>
-
   <div class="web-background"></div>
-
   <div class="main-wrapper">
-    <!-- MILES MORALES -->
     <img id="miles-morales" src="" class="spiderman-falling" alt="Miles Morales">
-
-    <!-- HEADER -->
     <header>
       <div class="logo">
         <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" class="spider-icon-gif" alt="Spider">
         <span>OLIVER LEWIS</span>
         <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" class="spider-icon-gif" alt="Spider">
       </div>
-      <div class="sub">
-        TEZZA PROMPTS OFICIAL
-      </div>
+      <div class="sub">TEZZA PROMPTS OFICIAL</div>
     </header>
-
-    <!-- CONTAINER -->
     <div class="container">
       <div class="prompt-box">
-        <div class="prompt-title">
-          OLIVER LEWIS COLABORADOR
-        </div>
+        <div class="prompt-title">OLIVER LEWIS COLABORADOR</div>
         <pre id="prompt1">
+          
 GEMINI [MODO PRO]
-
+        
 Ultra-realistic cinematic avatar 3D male portrait, Blender Cycles render in CGI, inspired by Seedream 5.0 realism and high-end IMVU/The Sims virtual aesthetics. Clearly a fictional digital avatar and not a real photograph. Hyper-detailed virtual influencer design with stylized CGI masculine proportions, luxury editorial aesthetics, advanced cinematic lighting, ultra-polished 3D rendering, and “TEZZA PROMPTS” text at the bottom center in elegant minimalist typography.
 
 CAMERA & COMPOSITION
@@ -417,51 +337,32 @@ MOOD & AESTHETIC
 Casual everyday mirror selfie aesthetic. Natural, relaxed, and modern masculine vibe inspired by social media lifestyle imagery.
 
 STYLE & RENDER QUALITY
-Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 masculine beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired avatar repaint aesthetics, high-fidelity masculine CGI rendering, realistic atmospheric depth, polished virtual influencer styling, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI-avatar aesthetics instead of a real photograph.               
-</pre>
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 masculine beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired avatar repaint aesthetics, high-fidelity masculine CGI rendering, realistic atmospheric depth, polished virtual influencer styling, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI-avatar aesthetics instead of a real photograph.             
+        </pre>
         <button onclick="copyPrompt(event,'prompt1')">
           <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" alt="Spider"> Copiar Prompt
         </button>
       </div>
     </div>
-
-    <!-- FOOTER -->
     <footer>
       MARQUE oliverr.vuh
       <br>
       OLIVER LEWIS • TEZZA PROMPTS — Conteúdo protegido.
     </footer>
   </div>
-
-  <!-- ELEMENTOS FORA DO WRAPPER -->
   <div class="falling-webs">
-    <span>🕸️</span>
-    <span>🕸️</span>
-    <span>🕸️</span>
-    <span>🕸️</span>
-    <span>🕸️</span>
-    <span>🕸️</span>
+    <span>🕸️</span><span>🕸️</span><span>🕸️</span><span>🕸️</span><span>🕸️</span><span>🕸️</span>
   </div>
-
   <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" class="floating-spider spider-top-left" alt="Spider">
   <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif" class="floating-spider spider-bottom-right" alt="Spider">
+  <div id="copy-message">PROMPT COPIADO COM SUCESSO</div>
 
-  <!-- MENSAGEM -->
-  <div id="copy-message">
-    PROMPT COPIADO COM SUCESSO
-  </div>
-
-  <!-- SCRIPT -->
   <script>
     window.addEventListener('load', () => {
       const miles = document.getElementById('miles-morales');
       const gifUrl = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxkeHJ6MXpxa3NicHM3NzVpYjFtNTIxNWVyMGUybTZnd2pmazVveiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QP7Iw9BfERn7S2UK4e/giphy.gif";
-      
       miles.src = gifUrl + "?t=" + new Date().getTime();
-
-      setTimeout(() => {
-        miles.style.display = 'none';
-      }, 2000); 
+      setTimeout(() => { miles.style.display = 'none'; }, 2000); 
     });
 
     async function copyPrompt(event,id){
@@ -489,7 +390,5 @@ Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 
       setTimeout(() => { msg.style.display = "none"; }, 2500);
     }
   </script>
-
 </body>
 </html>
-
