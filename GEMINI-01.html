@@ -109,25 +109,25 @@
       transition: filter 0.5s ease;
     }
 
-    /* AJUSTE MILES MORALES CAINDO */
+    /* MILES MORALES CAINDO - RESTAURADO TEMPO 1S E AJUSTADO POSIÇÃO */
     .spiderman-falling {
       position: absolute; 
-      right: -80px; 
+      right: -60px; 
       top: -400px; 
-      width: 320px;
+      width: 300px;
       height: auto;
       z-index: 9999;
       pointer-events: none;
       opacity: 0;
-      animation: spiderMilesArrival 1.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      animation: spiderMilesArrival 1s ease-out forwards;
     }
 
     @keyframes spiderMilesArrival {
-      0% { top: -400px; opacity: 0; transform: scale(0.6) rotate(-20deg); }
+      0% { top: -400px; opacity: 0; transform: scale(0.7); }
       20% { opacity: 1; }
-      65% { top: 80px; opacity: 1; transform: scale(1.1) rotate(5deg); }
-      85% { top: 55px; transform: scale(0.98) rotate(-2deg); }
-      100% { top: 60px; opacity: 1; transform: scale(1) rotate(0deg); }
+      50% { top: 70px; opacity: 1; transform: scale(1.1); }
+      70% { top: 55px; transform: scale(1); }
+      100% { top: 60px; opacity: 1; transform: scale(1); }
     }
 
     .floating-spider{
@@ -344,7 +344,12 @@
 
     #spiderverse-copy-effect.is-active{
       display:flex;
-      animation:spiderverseOverlayInOut 2.3s cubic-bezier(.16,.84,.44,1) forwards;
+      animation:spiderverseOverlayIn 0.5s cubic-bezier(.16,.84,.44,1) forwards;
+    }
+    
+    @keyframes spiderverseOverlayIn{
+      0%{ opacity:0; }
+      100%{ opacity:1; }
     }
 
     .spiderverse-content{
@@ -356,7 +361,12 @@
       justify-content:center;
       gap:25px;
       transform: scale(0.85);
-      animation:copyCardPop 2.3s cubic-bezier(.18,.89,.32,1.28) forwards;
+      animation:copyCardPopIn 0.6s cubic-bezier(.18,.89,.32,1.28) forwards;
+    }
+    
+    @keyframes copyCardPopIn{
+      0%{ opacity:0; transform:rotate(-12deg) translateY(80px) scale(0.3); }
+      100%{ opacity:1; transform:rotate(-3deg) scale(1); }
     }
 
     .spiderverse-content img{
@@ -405,20 +415,7 @@
     .spiderverse-bam.one{ top:-15%; left:-15%; --bam-rot:-22deg; }
     .spiderverse-bam.two{ bottom:-10%; right:-15%; --bam-rot:18deg; background:#00d6ff; color:#fff; }
 
-    @keyframes spiderverseOverlayInOut{
-      0%{ opacity:0; }
-      10%{ opacity:1; }
-      85%{ opacity:1; }
-      100%{ opacity:0; }
-    }
-
-    @keyframes copyCardPop{
-      0%{ opacity:0; transform:rotate(-12deg) translateY(80px) scale(0.3); }
-      15%{ opacity:1; transform:rotate(5deg) translateY(0) scale(1.15); }
-      30%{ transform:rotate(-3deg) scale(1); }
-      85%{ opacity:1; transform:rotate(-3deg) scale(1); }
-      100%{ opacity:0; transform:rotate(6deg) translateY(-40px) scale(0.8); }
-    }
+    /* Animações de saída removidas para manter fixo */
 
     @keyframes copyGifPunch{
       0%,100%{ transform:translate(0,0) rotate(0deg); }
@@ -449,17 +446,23 @@
       text-shadow: 2px 2px 0 #000;
     }
 
-    /* MEDIA QUERIES PARA RESPONSIVIDADE DO MILES */
+    /* MEDIA QUERIES PARA RESPONSIVIDADE DO MILES - FOCO NA POSIÇÃO */
     @media(max-width:1100px){
-      .spiderman-falling { right: -40px; width: 260px; }
+      .spiderman-falling { right: -20px; width: 250px; }
     }
 
     @media(max-width:900px){
-      .spiderman-falling { right: 10px; top: 150px; width: 220px; animation: spiderMilesArrivalTablet 1.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-      @keyframes spiderMilesArrivalTablet { 
-        0% { top: -200px; opacity: 0; transform: scale(0.6) rotate(-20deg); } 
-        65% { top: 160px; opacity: 1; transform: scale(1.1) rotate(5deg); } 
-        100% { top: 150px; opacity: 1; transform: scale(1) rotate(0deg); } 
+      .spiderman-falling {
+        right: 20px; /* Voltado para a direita conforme estava bom */
+        width: 220px;
+        animation: spiderMilesArrivalTablet 1s ease-out forwards;
+      }
+      @keyframes spiderMilesArrivalTablet {
+        0%  { top: -300px; opacity: 0; transform: scale(0.7); }
+        20% { opacity: 1; }
+        50% { top: 170px; opacity: 1; transform: scale(1.1); }
+        70% { top: 155px; transform: scale(1); }
+        100%{ top: 160px; opacity: 1; transform: scale(1); }
       }
     }
 
@@ -468,7 +471,19 @@
       .spider-icon-gif{ width:65px; }
       pre{ font-size:0.9rem; padding: 20px; }
       button{ width:100%; font-size: 1.5rem; }
-      .spiderman-falling { top: 130px; right: 5px; width: 150px; }
+      .spiderman-falling {
+        right: 10px;
+        transform: none;
+        width: 140px;
+        animation: spiderMilesArrivalMobile 1s ease-out forwards !important;
+      }
+      @keyframes spiderMilesArrivalMobile {
+        0%  { top: -200px; opacity: 0; transform: scale(0.7); }
+        20% { opacity: 1; }
+        50% { top: 200px; opacity: 1; transform: scale(1.1); } /* Descido mais um pouco (totalizando o ajuste do dedo midinho) */
+        70% { top: 185px; transform: scale(1); }
+        100%{ top: 190px; opacity: 1; transform: scale(1); }
+      }
       .spiderverse-bam{ width:130px; height:130px; font-size:2rem; }
       .spiderverse-copy-title { font-size: 4rem; }
     }
@@ -537,7 +552,8 @@ MOOD & AESTHETIC
 Casual everyday mirror selfie aesthetic. Natural, relaxed, and modern masculine vibe inspired by social media lifestyle imagery.
 
 STYLE & RENDER QUALITY
-Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 masculine beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired avatar repaint aesthetics, high-fidelity masculine CGI rendering, realistic atmospheric depth, polished virtual influencer styling, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI-avatar aesthetics instead of a real photograph.           
+Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 masculine beauty rendering, 8K UHD quality, physically accurate lighting and materials, realistic skin micro-detail, IMVU-inspired avatar repaint aesthetics, high-fidelity masculine CGI rendering, realistic atmospheric depth, polished virtual influencer styling, advanced ray tracing, realistic reflections, luxury editorial lighting, ultra-clean cinematic render quality, and clearly fictional CGI-avatar aesthetics instead of a real photograph.   
+          
         </pre>
         <button onclick="copyPrompt(event,'prompt1')">
           <div id="btn-spider"></div> Copiar Prompt
@@ -583,7 +599,7 @@ Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 
 
       const miles = document.getElementById('miles-morales');
       miles.src = milesGif + "?t=" + new Date().getTime();
-      setTimeout(() => { miles.style.display = 'none'; }, 2500);
+      setTimeout(() => { miles.style.display = 'none'; }, 2000); // VOLTADO PARA 2S COMO NO ORIGINAL
 
       document.getElementById('copy-spiderverse-gif').src = copySpiderverseGif;
     });
@@ -617,10 +633,7 @@ Ultra-photorealistic Blender Cycles CGI render, cinematic realism, Seedream 5.0 
       void overlay.offsetWidth;
       overlay.classList.add('is-active');
 
-      setTimeout(() => {
-        overlay.classList.remove('is-active');
-        document.body.classList.remove('just-copied');
-      }, 2300);
+      // O setTimeout que removia as classes foi retirado para a tela ficar fixa.
     }
 
     function playSpiderVerseSound(){
