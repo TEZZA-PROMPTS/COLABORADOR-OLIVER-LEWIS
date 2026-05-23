@@ -7,7 +7,7 @@
   <!-- TÍTULO LIMPO PARA O LINK -->
   <title>OLIVER LEWIS • PROMPTS</title>
 
-  <!-- CONFIGURAÇÃO PARA O LINK FICAR COMPACTO (ESTILO ANALU) -->
+  <!-- CONFIGURAÇÃO PARA O LINK FICAR COMPACTO -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="OLIVER LEWIS • PROMPTS">
   <meta property="og:title" content="OLIVER LEWIS • PROMPTS">
@@ -15,35 +15,87 @@
   <meta property="og:url" content="https://tezza-prompts.github.io/COLABORADOR-OLIVER-LEWIS/GEMINI-01.html">
   <meta name="description" content="TEZZA PROMPTS OFICIAL">
 
-  <!-- REMOVEMOS TODAS AS TAGS DE IMAGEM DO HEAD -->
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Bangers&display=swap" rel="stylesheet">
 
   <style>
+    /* CURSOR SETA ESTILO SPIDER-VERSE */
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
+      cursor: url('https://cur.cursors-4u.net/games/gam-4/gam372.cur'), auto !important;
     }
 
     body{
       font-family:'Poppins', sans-serif;
-      background:#0a0a0a;
-      background-image:
-      radial-gradient(circle at 20% 30%, rgba(255,0,0,0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(0,0,255,0.15) 0%, transparent 50%);
+      background-color: #050505;
+      background-image: 
+        radial-gradient(circle at 20% 35%, rgba(230, 36, 41, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(0, 90, 156, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(255, 230, 0, 0.08) 0%, transparent 60%),
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 18px 18px;
       min-height:100vh;
       overflow-x:hidden;
       color:#ffffff;
       position:relative;
+      transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    body.spiderverse-active{
+      background-color: #020014;
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(255, 230, 0, 0.45), transparent 35%),
+        radial-gradient(circle at 80% 15%, rgba(0, 214, 255, 0.45), transparent 35%),
+        radial-gradient(circle at 50% 70%, rgba(230, 36, 41, 0.55), transparent 45%),
+        radial-gradient(rgba(255, 255, 255, 0.12) 2px, transparent 2px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 12px 12px;
+    }
+
+    body.spiderverse-active .main-wrapper{
+      filter: saturate(2.2) contrast(1.2) hue-rotate(5deg);
+      animation: spiderversePageShakeContinuous 3s steps(10, end) infinite;
+    }
+
+    @keyframes spiderversePageShakeContinuous {
+      0%, 100% { transform: translate(0,0); }
+      10% { transform: translate(-2px, 1px); }
+      20% { transform: translate(1px, -2px); }
+      30% { transform: translate(-1px, 2px); }
+      40% { transform: translate(2px, -1px); }
+    }
+
+    body.just-copied .main-wrapper {
+      animation: spiderversePageShakeImpact 0.55s steps(6, end) both !important;
+    }
+
+    @keyframes spiderversePageShakeImpact{
+      0%{ transform:translate(0,0) skew(0deg); }
+      15%{ transform:translate(-10px,5px) skew(-2deg); }
+      30%{ transform:translate(8px,-6px) skew(2deg); }
+      45%{ transform:translate(-6px,-4px) skew(-1deg); }
+      60%{ transform:translate(7px,5px) skew(2deg); }
+      75%{ transform:translate(-4px,3px) skew(-1deg); }
+      100%{ transform:translate(0,0) skew(0deg); }
     }
 
     .web-background{
       position:fixed;
       inset:0;
       background-image:
-      radial-gradient(circle at 50% 50%, transparent 0%, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size:50px 50px;
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
       z-index:0;
       pointer-events:none;
     }
@@ -53,44 +105,48 @@
       max-width: 950px;
       margin: auto;
       min-height: 100vh;
+      z-index: 2;
+      transition: filter 0.5s ease;
     }
 
+    /* AJUSTE MILES MORALES CAINDO */
     .spiderman-falling {
       position: absolute; 
-      right: -50px; 
+      right: -80px; 
       top: -400px; 
-      width: 280px;
+      width: 320px;
       height: auto;
       z-index: 9999;
       pointer-events: none;
       opacity: 0;
-      animation: spiderMilesArrival 1s ease-out forwards;
+      animation: spiderMilesArrival 1.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
     @keyframes spiderMilesArrival {
-      0% { top: -400px; opacity: 0; transform: scale(0.7); }
+      0% { top: -400px; opacity: 0; transform: scale(0.6) rotate(-20deg); }
       20% { opacity: 1; }
-      50% { top: 60px; opacity: 1; transform: scale(1.1); }
-      70% { top: 50px; transform: scale(1); }
-      100% { top: 50px; opacity: 1; transform: scale(1); }
+      65% { top: 80px; opacity: 1; transform: scale(1.1) rotate(5deg); }
+      85% { top: 55px; transform: scale(0.98) rotate(-2deg); }
+      100% { top: 60px; opacity: 1; transform: scale(1) rotate(0deg); }
     }
 
     .floating-spider{
       position:fixed;
-      width:120px;
+      width:130px;
       height:auto;
-      opacity:0.25;
-      z-index:0;
+      opacity:0.35;
+      z-index:1;
       pointer-events:none;
-      animation:float 7s ease-in-out infinite;
+      animation:float 8s ease-in-out infinite;
+      filter: drop-shadow(0 0 15px rgba(230, 36, 41, 0.4));
     }
 
-    .spider-top-left{ top:30px; left:20px; }
-    .spider-bottom-right{ bottom:30px; right:20px; animation-delay:2s; }
+    .spider-top-left{ top:40px; left:30px; }
+    .spider-bottom-right{ bottom:40px; right:30px; animation-delay:2.5s; }
 
     @keyframes float{
-      0%,100%{ transform:translateY(0px) rotate(0deg); }
-      50%{ transform:translateY(-20px) rotate(15deg); }
+      0%,100%{ transform:translateY(0px) rotate(-5deg); }
+      50%{ transform:translateY(-30px) rotate(10deg); }
     }
 
     .falling-webs{
@@ -98,188 +154,329 @@
       inset:0;
       overflow:hidden;
       pointer-events:none;
-      z-index:0;
+      z-index:1;
     }
 
     .falling-webs span{
       position:absolute;
       top:-10%;
-      font-size:24px;
-      opacity:0.4;
+      font-size:28px;
+      opacity:0.3;
       animation:fall linear infinite;
+      filter: drop-shadow(0 0 5px white);
     }
 
-    .falling-webs span:nth-child(1){ left:8%; animation-duration:12s; }
-    .falling-webs span:nth-child(2){ left:22%; animation-duration:15s; }
-    .falling-webs span:nth-child(3){ left:40%; animation-duration:13s; }
-    .falling-webs span:nth-child(4){ left:58%; animation-duration:17s; }
-    .falling-webs span:nth-child(5){ left:75%; animation-duration:14s; }
-    .falling-webs span:nth-child(6){ left:92%; animation-duration:11s; }
+    .falling-webs span:nth-child(1){ left:10%; animation-duration:14s; }
+    .falling-webs span:nth-child(2){ left:25%; animation-duration:18s; }
+    .falling-webs span:nth-child(3){ left:45%; animation-duration:15s; }
+    .falling-webs span:nth-child(4){ left:65%; animation-duration:20s; }
+    .falling-webs span:nth-child(5){ left:80%; animation-duration:16s; }
+    .falling-webs span:nth-child(6){ left:95%; animation-duration:13s; }
 
     @keyframes fall{
-      0%{ transform:translateY(-100px) rotate(0deg); }
-      100%{ transform:translateY(120vh) rotate(360deg); }
+      0%{ transform:translateY(-100px) rotate(0deg) scale(0.8); }
+      50%{ transform: scale(1.1); }
+      100%{ transform:translateY(120vh) rotate(720deg) scale(0.8); }
     }
 
     header{
       position:relative;
-      z-index:2;
+      z-index:3;
       text-align:center;
-      padding:70px 20px 45px;
+      padding:80px 20px 50px;
     }
 
     .logo{
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:18px;
-      margin-bottom:20px;
+      gap:22px;
+      margin-bottom:25px;
     }
 
     .logo span{
       font-family:'Bangers', cursive;
-      font-size:5rem;
+      font-size:5.5rem;
       color:#e62429;
-      text-shadow:4px 4px 0 #000;
-      letter-spacing:3px;
+      text-shadow:
+        5px 5px 0 #000,
+        -2px -2px 0 #00d6ff;
+      letter-spacing:4px;
+      transform: skew(-5deg);
     }
 
     .spider-icon-gif{
-      width:80px;
+      width:85px;
       height:auto;
-      animation:pulse 3s infinite ease-in-out;
+      animation:pulse 2.5s infinite ease-in-out;
+      filter: drop-shadow(0 0 10px rgba(230, 36, 41, 0.6));
     }
 
     @keyframes pulse{
-      0%,100%{ transform:scale(1); }
-      50%{ transform:scale(1.2); }
+      0%,100%{ transform:scale(1) rotate(0deg); }
+      50%{ transform:scale(1.25) rotate(10deg); }
     }
 
     .sub{
       color:#fff;
-      font-size:1.1rem;
-      font-weight:600;
+      font-size:1.2rem;
+      font-weight:700;
       text-transform:uppercase;
-      letter-spacing:2px;
+      letter-spacing:3px;
       background:#005a9c;
       display:inline-block;
-      padding:5px 20px;
-      transform:skew(-10deg);
-      box-shadow:5px 5px 0 #e62429;
+      padding:8px 25px;
+      transform:skew(-15deg);
+      box-shadow:
+        8px 8px 0 #e62429,
+        -4px -4px 0 #000;
+      border: 2px solid #000;
     }
 
     .container{
       position:relative;
-      z-index:2;
-      padding:20px;
+      z-index:3;
+      padding:25px;
     }
 
     .prompt-box{
-      background:rgba(20,20,20,0.85);
-      backdrop-filter:blur(14px);
-      border:2px solid #e62429;
-      border-radius:20px;
-      padding:30px;
-      box-shadow:0 0 30px rgba(230,36,41,0.3);
-      transition:0.3s;
+      background:rgba(10,10,10,0.92);
+      backdrop-filter:blur(16px);
+      border:3px solid #e62429;
+      border-radius:24px;
+      padding:35px;
+      box-shadow:
+        0 0 40px rgba(230,36,41,0.25),
+        15px 15px 0 rgba(0,0,0,0.8);
+      transition:0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .prompt-box:hover{
-      transform:translateY(-8px);
-      border-color:#005a9c;
+      transform:translateY(-12px) scale(1.01);
+      border-color:#00d6ff;
+      box-shadow:
+        0 0 50px rgba(0,214,255,0.3),
+        20px 20px 0 rgba(0,0,0,0.9);
     }
 
     .prompt-title{
       font-family:'Bangers', cursive;
-      font-size:1.8rem;
-      border-left:5px solid #e62429;      padding-left:15px;
-      margin-bottom:18px;
+      font-size:2rem;
+      border-left:6px solid #e62429;
+      padding-left:18px;
+      margin-bottom:22px;
+      color: #00d6ff;
+      text-shadow: 2px 2px 0 #000;
     }
 
     pre{
       white-space:pre-wrap;
-      background:#1a1a1a;
-      border:1px solid #333;
-      border-radius:12px;
-      padding:24px;
-      line-height:1.8;
-      color:#e0e0e0;
-      font-size:0.95rem;
+      background:#050505;
+      border:2px solid #222;
+      border-radius:15px;
+      padding:28px;
+      line-height:1.9;
+      color:#f0f0f0;
+      font-size:1rem;
+      box-shadow: inset 0 0 20px rgba(0,0,0,1);
     }
 
     button{
-      margin-top:24px;
-      border:none;
+      margin-top:30px;
+      border:3px solid #000;
       background:linear-gradient(135deg,#e62429,#b11b1f);
       color:white;
-      padding:16px 40px;
-      border-radius:12px;
+      padding:18px 45px;
+      border-radius:15px;
       cursor:pointer;
       font-family:'Bangers', cursive;
-      font-size:1.5rem;
+      font-size:1.7rem;
       transition:0.3s;
-      box-shadow:0 10px 25px rgba(230,36,41,0.35);
+      box-shadow:
+        0 12px 30px rgba(230,36,41,0.4),
+        6px 6px 0 #000;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      overflow: hidden;
     }
-
-    button img{ width: 30px; height: auto; }
 
     button:hover{
-      transform:scale(1.05);
+      transform:scale(1.08) rotate(-1deg);
       background:linear-gradient(135deg,#005a9c,#004a80);
-      box-shadow:0 16px 35px rgba(0,90,156,0.45);
+      box-shadow:
+        0 18px 40px rgba(0,90,156,0.5),
+        8px 8px 0 #000;
+      animation: glitchBtn 0.25s infinite;
     }
 
-    #copy-message{
+    @keyframes glitchBtn {
+      0% { transform: translate(0) scale(1.08); }
+      25% { transform: translate(-3px, 2px) scale(1.08) skew(1deg); }
+      50% { transform: translate(3px, -2px) scale(1.08) skew(-1deg); }
+      75% { transform: translate(-2px, -3px) scale(1.08); }
+      100% { transform: translate(0) scale(1.08); }
+    }
+
+    button img{ width: 35px; height: auto; }
+
+    /* EFEITO SPIDER-VERSE AO COPIAR O PROMPT */
+    #spiderverse-copy-effect{
       position:fixed;
-      bottom:50px;
-      left:50%;
-      transform:translateX(-50%) skew(-10deg);
-      background:#005a9c;
-      color:#ffffff;
-      padding:10px 25px;
+      inset:0;
+      z-index:99999;
       display:none;
-      z-index:100000;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,230,0,0.65), transparent 35%),
+        radial-gradient(circle at 80% 15%, rgba(0,214,255,0.55), transparent 35%),
+        radial-gradient(circle at 50% 70%, rgba(230,36,41,0.75), transparent 45%),
+        rgba(0,0,0,0.92);
+      opacity:0;
+    }
+
+    #spiderverse-copy-effect.is-active{
+      display:flex;
+      animation:spiderverseOverlayInOut 2.3s cubic-bezier(.16,.84,.44,1) forwards;
+    }
+
+    .spiderverse-content{
+      position:relative;
+      z-index:3;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:25px;
+      transform: scale(0.85);
+      animation:copyCardPop 2.3s cubic-bezier(.18,.89,.32,1.28) forwards;
+    }
+
+    .spiderverse-content img{
+      width:min(90vw, 480px);
+      height:auto;
+      filter:
+        drop-shadow(15px 18px 0 rgba(0,0,0,0.95)) 
+        drop-shadow(-10px -8px 0 rgba(0,214,255,0.8));
+      animation:copyGifPunch 0.7s steps(3, end) infinite;
+    }
+
+    .spiderverse-copy-title{
+      position:relative;
       font-family:'Bangers', cursive;
-      letter-spacing:2px;
-      font-size:1.2rem;
+      font-size:clamp(4rem, 14vw, 9rem);
+      line-height:0.85;
+      color:#ffe600;
       text-transform:uppercase;
-      box-shadow:5px 5px 0 #e62429;
-      text-align: center;
+      letter-spacing:5px;
+      text-align:center;
+      text-shadow:
+        7px 7px 0 #000,
+        -5px -5px 0 #00d6ff,
+        10px 0 0 #e62429;
+      transform:skew(-10deg) rotate(-3deg);
+      animation:titleGlitch 0.35s steps(2, end) infinite;
+    }
+
+    .spiderverse-bam{
+      position:absolute;
+      z-index:4;
+      width:200px;
+      height:200px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Bangers', cursive;
+      font-size:3rem;
+      color:#050505;
+      background:#ffe600;
+      clip-path:polygon(50% 0%, 60% 30%, 95% 16%, 72% 45%, 100% 55%, 68% 63%, 82% 96%, 52% 74%, 31% 100%, 33% 66%, 0% 72%, 25% 50%, 4% 23%, 38% 32%);
+      filter:drop-shadow(10px 10px 0 #000);
+      animation:bamBurst 2.3s ease-out forwards;
+    }
+
+    .spiderverse-bam.one{ top:-15%; left:-15%; --bam-rot:-22deg; }
+    .spiderverse-bam.two{ bottom:-10%; right:-15%; --bam-rot:18deg; background:#00d6ff; color:#fff; }
+
+    @keyframes spiderverseOverlayInOut{
+      0%{ opacity:0; }
+      10%{ opacity:1; }
+      85%{ opacity:1; }
+      100%{ opacity:0; }
+    }
+
+    @keyframes copyCardPop{
+      0%{ opacity:0; transform:rotate(-12deg) translateY(80px) scale(0.3); }
+      15%{ opacity:1; transform:rotate(5deg) translateY(0) scale(1.15); }
+      30%{ transform:rotate(-3deg) scale(1); }
+      85%{ opacity:1; transform:rotate(-3deg) scale(1); }
+      100%{ opacity:0; transform:rotate(6deg) translateY(-40px) scale(0.8); }
+    }
+
+    @keyframes copyGifPunch{
+      0%,100%{ transform:translate(0,0) rotate(0deg); }
+      33%{ transform:translate(-12px,6px) rotate(-4deg); }
+      66%{ transform:translate(10px,-8px) rotate(4deg); }
+    }
+
+    @keyframes titleGlitch{
+      0%,100%{ text-shadow:7px 7px 0 #000, -5px -5px 0 #00d6ff, 10px 0 0 #e62429; transform:skew(-10deg) rotate(-3deg); }
+      50%{ text-shadow:10px 3px 0 #000, -10px 0 0 #00d6ff, 15px -3px 0 #e62429; transform:skew(-12deg) rotate(-4deg) translate(5px, -3px); }
+    }
+
+    @keyframes bamBurst{
+      0%{ opacity:0; transform:rotate(var(--bam-rot, 0deg)) scale(0); }
+      15%{ opacity:1; transform:rotate(var(--bam-rot, 0deg)) scale(1.25); }
+      80%{ opacity:1; transform:rotate(var(--bam-rot, 0deg)) scale(1); }
+      100%{ opacity:0; transform:rotate(var(--bam-rot, 0deg)) scale(0.4); }
     }
 
     footer{
       text-align:center;
-      padding:40px 20px;
-      color:#888;
+      padding:50px 20px;
+      color:#aaa;
       position:relative;
-      z-index:2;
-      line-height:1.8;
+      z-index:3;
+      line-height:2;
+      font-weight: 500;
+      text-shadow: 2px 2px 0 #000;
     }
 
-    @media(max-width:1100px){ .spiderman-falling { right: 0px; width: 200px; } }
-    @media(max-width:900px){
-      .spiderman-falling { position: absolute; right: 10px; top: 150px; width: 160px; opacity: 0; animation: spiderMilesArrivalTablet 1s ease-out forwards; z-index: 10; }
-      @keyframes spiderMilesArrivalTablet { 0% { top: -100px; opacity: 0; transform: scale(0.7); } 50% { top: 160px; opacity: 1; transform: scale(1.1); } 100% { top: 150px; opacity: 1; transform: scale(1); } }
+    /* MEDIA QUERIES PARA RESPONSIVIDADE DO MILES */
+    @media(max-width:1100px){
+      .spiderman-falling { right: -40px; width: 260px; }
     }
+
+    @media(max-width:900px){
+      .spiderman-falling { right: 10px; top: 150px; width: 220px; animation: spiderMilesArrivalTablet 1.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+      @keyframes spiderMilesArrivalTablet { 
+        0% { top: -200px; opacity: 0; transform: scale(0.6) rotate(-20deg); } 
+        65% { top: 160px; opacity: 1; transform: scale(1.1) rotate(5deg); } 
+        100% { top: 150px; opacity: 1; transform: scale(1) rotate(0deg); } 
+      }
+    }
+
     @media(max-width:700px){
-      .logo span{ font-size:3rem; }
-      .spider-icon-gif{ width:60px; }
-      pre{ font-size:0.88rem; }
-      button{ width:100%; }
-      .spiderman-falling { top: 140px; width: 130px; }
+      .logo span{ font-size:3.5rem; }
+      .spider-icon-gif{ width:65px; }
+      pre{ font-size:0.9rem; padding: 20px; }
+      button{ width:100%; font-size: 1.5rem; }
+      .spiderman-falling { top: 130px; right: 5px; width: 150px; }
+      .spiderverse-bam{ width:130px; height:130px; font-size:2rem; }
+      .spiderverse-copy-title { font-size: 4rem; }
     }
   </style>
 </head>
 <body>
   <div class="web-background"></div>
   <div class="main-wrapper">
-    <!-- IMAGENS SERÃO CARREGADAS VIA JS PARA NÃO APARECEREM NO LINK -->
     <img id="miles-morales" src="" class="spiderman-falling" alt="">
     
     <header>
@@ -321,35 +518,39 @@ GEMINI [MODO PRO]
   <div id="spider-float-1"></div>
   <div id="spider-float-2"></div>
 
-  <div id="copy-message">PROMPT COPIADO COM SUCESSO</div>
+  <div id="spiderverse-copy-effect" aria-hidden="true">
+    <div class="spiderverse-content">
+      <div class="spiderverse-bam one">THWIP!</div>
+      <img id="copy-spiderverse-gif" src="" alt="">
+      <div class="spiderverse-copy-title">PROMPT COPIADO!</div>
+      <div class="spiderverse-bam two">POW!</div>
+    </div>
+  </div>
 
   <script>
-    // CARREGAMENTO DINÂMICO DE IMAGENS (INVISÍVEL PARA ROBÔS DE LINK)
-    window.addEventListener('load', () => {
-      const spiderGif = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif";
-      const milesGif = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxkeHJ6MXpxa3NicHM3NzVpYjFtNTIxNWVyMGUybTZnd2pmazVveiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QP7Iw9BfERn7S2UK4e/giphy.gif";
+    const spiderGif = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGNtMGN0bzMxdXNxMmcybDF1NG9sejRpdnRudzE3Z2cyMzE0NTJncCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/AkPwUFJqth1uUhMoMb/giphy.gif";
+    const milesGif = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxkeHJ6MXpxa3NicHM3NzVpYjFtNTIxNWVyMGUybTZnd2pmazVveiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QP7Iw9BfERn7S2UK4e/giphy.gif";
+    const copySpiderverseGif = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzUzYTAwb3V5bGhjcjF6cjg2OGs2eDZzZ2Iwem1uNXYyZ3RrMHg0MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/x7WXCEYwnbvDe3GM3e/giphy.gif";
+    const SPIDER_THWIP_AUDIO_URL = "https://www.myinstants.com/media/sounds/black-suit-spider-man.mp3";
 
-      // Logo Spiders
+    window.addEventListener('load', () => {
       document.getElementById('spider-left').innerHTML = `<img src="${spiderGif}" class="spider-icon-gif" alt="">`;
       document.getElementById('spider-right').innerHTML = `<img src="${spiderGif}" class="spider-icon-gif" alt="">`;
-      
-      // Floating Spiders
       document.getElementById('spider-float-1').innerHTML = `<img src="${spiderGif}" class="floating-spider spider-top-left" alt="">`;
       document.getElementById('spider-float-2').innerHTML = `<img src="${spiderGif}" class="floating-spider spider-bottom-right" alt="">`;
-      
-      // Button Spider
-      document.getElementById('btn-spider').innerHTML = `<img src="${spiderGif}" style="width:30px;height:auto;" alt="">`;
+      document.getElementById('btn-spider').innerHTML = `<img src="${spiderGif}" style="width:35px;height:auto;" alt="">`;
 
-      // Miles Morales
       const miles = document.getElementById('miles-morales');
       miles.src = milesGif + "?t=" + new Date().getTime();
-      setTimeout(() => { miles.style.display = 'none'; }, 2000); 
+      setTimeout(() => { miles.style.display = 'none'; }, 2500);
+
+      document.getElementById('copy-spiderverse-gif').src = copySpiderverseGif;
     });
 
     async function copyPrompt(event,id){
       const el = document.getElementById(id);
       try{
-        await navigator.clipboard.writeText(el.innerText);
+        await navigator.clipboard.writeText(el.innerText.trim());
       } catch(err){
         const range = document.createRange();
         range.selectNodeContents(el);
@@ -359,16 +560,34 @@ GEMINI [MODO PRO]
         document.execCommand('copy');
         selection.removeAllRanges();
       }
-      showMessage();
+      playSpiderVerseSound();
+      triggerSpiderVerseEffect();
     }
 
-    function showMessage(){
-      const msg = document.getElementById("copy-message");
-      msg.style.display = "block";
-      msg.style.animation = "none";
-      void msg.offsetWidth;
-      msg.style.animation = "fadeMessage 2.5s ease forwards";
-      setTimeout(() => { msg.style.display = "none"; }, 2500);
+    function triggerSpiderVerseEffect(){
+      const overlay = document.getElementById('spiderverse-copy-effect');
+      const gif = document.getElementById('copy-spiderverse-gif');
+
+      gif.src = copySpiderverseGif + "?t=" + new Date().getTime();
+      overlay.classList.remove('is-active');
+      
+      document.body.classList.add('spiderverse-active');
+      document.body.classList.add('just-copied');
+      void overlay.offsetWidth;
+      overlay.classList.add('is-active');
+
+      setTimeout(() => {
+        overlay.classList.remove('is-active');
+        document.body.classList.remove('just-copied');
+      }, 2300);
+    }
+
+    function playSpiderVerseSound(){
+      if(SPIDER_THWIP_AUDIO_URL){
+        const audio = new Audio(SPIDER_THWIP_AUDIO_URL);
+        audio.volume = 0.9;
+        audio.play().catch(err => console.warn("Áudio bloqueado:", err));
+      }
     }
   </script>
 </body>
