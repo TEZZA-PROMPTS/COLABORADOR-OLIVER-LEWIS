@@ -109,25 +109,25 @@
       transition: filter 0.5s ease;
     }
 
-    /* AJUSTE MILES MORALES CAINDO */
+    /* MILES MORALES CAINDO - RESTAURADO TEMPO 1S E AJUSTADO POSIÇÃO */
     .spiderman-falling {
       position: absolute; 
-      right: -80px; 
+      right: -60px; 
       top: -400px; 
-      width: 320px;
+      width: 300px;
       height: auto;
       z-index: 9999;
       pointer-events: none;
       opacity: 0;
-      animation: spiderMilesArrival 1.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      animation: spiderMilesArrival 1s ease-out forwards;
     }
 
     @keyframes spiderMilesArrival {
-      0% { top: -400px; opacity: 0; transform: scale(0.6) rotate(-20deg); }
+      0% { top: -400px; opacity: 0; transform: scale(0.7); }
       20% { opacity: 1; }
-      65% { top: 80px; opacity: 1; transform: scale(1.1) rotate(5deg); }
-      85% { top: 55px; transform: scale(0.98) rotate(-2deg); }
-      100% { top: 60px; opacity: 1; transform: scale(1) rotate(0deg); }
+      50% { top: 70px; opacity: 1; transform: scale(1.1); }
+      70% { top: 55px; transform: scale(1); }
+      100% { top: 60px; opacity: 1; transform: scale(1); }
     }
 
     .floating-spider{
@@ -449,17 +449,17 @@
       text-shadow: 2px 2px 0 #000;
     }
 
-    /* MEDIA QUERIES PARA RESPONSIVIDADE DO MILES */
+    /* MEDIA QUERIES PARA RESPONSIVIDADE DO MILES - FOCO NA POSIÇÃO */
     @media(max-width:1100px){
-      .spiderman-falling { right: -40px; width: 260px; }
+      .spiderman-falling { right: -20px; width: 250px; }
     }
 
     @media(max-width:900px){
-      .spiderman-falling { right: 10px; top: 150px; width: 220px; animation: spiderMilesArrivalTablet 1.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+      .spiderman-falling { right: 10px; top: 150px; width: 200px; animation: spiderMilesArrivalTablet 1s ease-out forwards; }
       @keyframes spiderMilesArrivalTablet { 
-        0% { top: -200px; opacity: 0; transform: scale(0.6) rotate(-20deg); } 
-        65% { top: 160px; opacity: 1; transform: scale(1.1) rotate(5deg); } 
-        100% { top: 150px; opacity: 1; transform: scale(1) rotate(0deg); } 
+        0% { top: -200px; opacity: 0; transform: scale(0.7); } 
+        50% { top: 160px; opacity: 1; transform: scale(1.1); } 
+        100% { top: 150px; opacity: 1; transform: scale(1); } 
       }
     }
 
@@ -468,7 +468,7 @@
       .spider-icon-gif{ width:65px; }
       pre{ font-size:0.9rem; padding: 20px; }
       button{ width:100%; font-size: 1.5rem; }
-      .spiderman-falling { top: 130px; right: 5px; width: 150px; }
+      .spiderman-falling { top: 140px; right: 5px; width: 140px; }
       .spiderverse-bam{ width:130px; height:130px; font-size:2rem; }
       .spiderverse-copy-title { font-size: 4rem; }
     }
@@ -542,7 +542,7 @@ GEMINI [MODO PRO]
 
       const miles = document.getElementById('miles-morales');
       miles.src = milesGif + "?t=" + new Date().getTime();
-      setTimeout(() => { miles.style.display = 'none'; }, 2500);
+      setTimeout(() => { miles.style.display = 'none'; }, 2000); // VOLTADO PARA 2S COMO NO ORIGINAL
 
       document.getElementById('copy-spiderverse-gif').src = copySpiderverseGif;
     });
